@@ -1,0 +1,24 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!include <logos/spring>
+!include <logos/angular>
+!include <logos/mongodb>
+
+Person(user, "User", "interact")
+Container(front, "frontend", "Angular", $sprite=angular)
+Container(eco_back, "e-commerce backend", "Spring Boot", $sprite=spring)
+Container(bo_back, "Back Office", "Administration", $sprite=spring)
+ContainerDb(eco_db, "e-commerce DB", "MongoDB", "Stores products", $sprite=mongodb)
+
+System_Ext(google, "Google", "Auth Server")
+BiRel(front, eco_back, "interact", "https")
+Rel(eco_back, google, "OpenID Connect", "https")
+Rel(front, bo_back, "administration", "https")
+Rel(eco_back, eco_db, "navigation", https)
+Rel("user", front, "read/write")
+
+
+SHOW_LEGEND()
+
+@enduml
