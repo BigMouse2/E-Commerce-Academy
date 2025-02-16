@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: e-commerce backend
+  data:
+    mongodb:
+      password: pass
+      username: user
+      port: 27017
+      host: localhost
