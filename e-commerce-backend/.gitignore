@@ -33,4 +33,5 @@ build/
 .vscode/
 
 ### Data docker ###
-/local-development-env/data/
+local-development-env/data/
+
